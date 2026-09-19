@@ -7,6 +7,7 @@ import RiskCard from "@/components/RiskCard";
 import RiskSummary from "@/components/RiskSummary";
 import LanguageToggle from "@/components/LanguageToggle";
 import { LogoMark, SparkleIcon, StepIcon, STEP_ICON_PATHS } from "@/components/icons";
+import { SAMPLE_DOCUMENTS } from "@/lib/samples";
 import type { AnalysisResult, SupportedLanguage } from "@/types/risk";
 
 const STEPS = [
@@ -126,7 +127,21 @@ export default function Home() {
           <UploadZone onTextReady={handleTextReady} />
         </div>
 
-        <div className="relative mt-16 grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="relative mt-5 flex flex-wrap items-center justify-center gap-2 text-sm text-slate-400">
+          <span>No document handy? Try a sample:</span>
+          {SAMPLE_DOCUMENTS.map((sample) => (
+            <button
+              key={sample.id}
+              type="button"
+              onClick={() => handleTextReady(sample.text, sample.fileName)}
+              className="rounded-full border border-slate-200 bg-white px-3 py-1 font-medium text-indigo-600 shadow-sm transition hover:border-indigo-300 hover:bg-indigo-50"
+            >
+              {sample.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="relative mt-12 grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
           {STEPS.map((step, i) => (
             <div
               key={step.title}
