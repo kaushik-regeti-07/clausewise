@@ -1,5 +1,10 @@
 export async function extractTextFromPdf(buffer: Buffer): Promise<string> {
-  const pdfParse = (await import("pdf-parse")).default;
-  const result = await pdfParse(buffer);
-  return result.text;
+  const { PDFParse } = await import("pdf-parse");
+  const parser = new PDFParse({ data: buffer });
+  try {
+    const result = await parser.getText({ pageJoiner: "\n" });
+    return result.text;
+  } finally {
+    await parser.destroy();
+  }
 }

@@ -27,7 +27,8 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-  } catch {
+  } catch (err) {
+    console.error("Extraction failed:", err);
     return NextResponse.json(
       {
         error:
