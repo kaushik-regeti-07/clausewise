@@ -6,7 +6,15 @@ import DocumentViewer from "@/components/DocumentViewer";
 import RiskCard from "@/components/RiskCard";
 import RiskSummary from "@/components/RiskSummary";
 import LanguageToggle from "@/components/LanguageToggle";
-import { LogoMark, SparkleIcon, StepIcon, STEP_ICON_PATHS } from "@/components/icons";
+import {
+  BackArrowIcon,
+  DownloadIcon,
+  LogoMark,
+  SparkleIcon,
+  StepIcon,
+  STEP_ICON_PATHS,
+} from "@/components/icons";
+import { buildReportText, downloadTextFile } from "@/lib/report";
 import { SAMPLE_DOCUMENTS } from "@/lib/samples";
 import type { AnalysisResult, SupportedLanguage } from "@/types/risk";
 
@@ -93,6 +101,12 @@ export default function Home() {
   const result = resultsByLanguage[language];
   const activeItem = result?.items.find((i) => i.id === activeItemId) ?? null;
 
+  const handleDownload = () => {
+    if (!result) return;
+    const base = (fileName ?? "document").replace(/\.[^/.]+$/, "");
+    downloadTextFile(buildReportText(result, fileName, language), `clausewise-${base}-${language}.txt`);
+  };
+
   if (!documentText) {
     return (
       <div className="relative flex flex-1 flex-col items-center overflow-hidden bg-slate-50 px-6 py-20">
@@ -164,21 +178,34 @@ export default function Home() {
 
   return (
     <div className="flex flex-1 flex-col bg-slate-50">
-      <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-3.5">
-        <div className="flex items-center gap-3">
-          <LogoMark className="h-8 w-8" />
-          <div>
+      <header className="flex flex-wrap items-center justify-between gap-y-2 border-b border-slate-200 bg-white px-4 py-3 sm:px-6 sm:py-3.5">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            onClick={reset}
+            aria-label="Back to upload"
+            title="Back to upload"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+          >
+            <BackArrowIcon className="h-4 w-4" />
+          </button>
+          <LogoMark className="h-8 w-8 shrink-0" />
+          <div className="min-w-0">
             <h1 className="text-base font-bold leading-tight text-slate-900">ClauseWise</h1>
-            {fileName && <p className="text-xs text-slate-400">{fileName}</p>}
+            {fileName && <p className="truncate text-xs text-slate-400">{fileName}</p>}
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <LanguageToggle value={language} onChange={handleLanguageChange} disabled={loading} />
           <button
-            onClick={reset}
-            className="rounded-full px-3 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-800"
+            type="button"
+            onClick={handleDownload}
+            disabled={!result}
+            title="Download report"
+            className="flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-slate-200 disabled:hover:bg-transparent"
           >
-            Analyze another
+            <DownloadIcon className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Download</span>
           </button>
         </div>
       </header>

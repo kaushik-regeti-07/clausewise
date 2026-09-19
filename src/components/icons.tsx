@@ -49,6 +49,23 @@ export function UploadIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+export function BackArrowIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} strokeWidth={2}>
+      <path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function DownloadIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} strokeWidth={2}>
+      <path d="M12 4v11M8 11l4 4 4-4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 19h14" stroke="currentColor" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function SparkleIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
