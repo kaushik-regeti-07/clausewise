@@ -16,7 +16,7 @@ Legal literacy shouldn't be a prerequisite for signing a lease.
    running on Nebius Token Factory.
 3. The model finds every clause that hides a cost, limits your rights, or creates
    an obligation you might not expect, and explains each one in plain language -
-   in English or Hindi.
+   in English, Hindi, Telugu, Tamil, Kannada, or Malayalam.
 4. Each flagged clause is color-coded by risk (high/medium/low), and clicking a
    card jumps to and highlights the matching text in the original document.
 
@@ -39,6 +39,5 @@ Open [http://localhost:3000](http://localhost:3000).
 ## What's next
 
 - OCR support for scanned/image-based documents
-- More regional languages beyond English/Hindi
 - Downloadable plain-language summary report
 - Browser extension to flag risky clauses on any web-based contract (e.g. Terms of Service)

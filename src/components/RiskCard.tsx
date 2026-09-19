@@ -19,7 +19,7 @@ export default function RiskCard({ item, active, onClick }: RiskCardProps) {
     <button
       type="button"
       onClick={onClick}
-      className={`w-full text-left rounded-xl border ${style.border} bg-white p-4 shadow-sm transition hover:shadow-md ${
+      className={`w-full text-left rounded-xl border ${style.border} bg-white p-4 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md ${
         active ? "ring-2 ring-indigo-400" : ""
       }`}
     >
