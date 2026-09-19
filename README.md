@@ -1,4 +1,4 @@
-# Clarity - Document Red-Flag Reader
+# ClauseWise - Document Red-Flag Reader
 
 Built in 24 hours for **Hack Devengers 2.0**.
 
@@ -12,7 +12,7 @@ Legal literacy shouldn't be a prerequisite for signing a lease.
 ## What it does
 
 1. Upload a PDF (or paste text) of any contract, policy, or bill.
-2. Clarity extracts the document text and sends it to an NVIDIA Nemotron model
+2. ClauseWise extracts the document text and sends it to an NVIDIA Nemotron model
    running on Nebius Token Factory.
 3. The model finds every clause that hides a cost, limits your rights, or creates
    an obligation you might not expect, and explains each one in plain language -

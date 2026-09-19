@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clarity - Document Red-Flag Reader",
+  title: "ClauseWise - Document Red-Flag Reader",
   description:
-    "Upload a contract, policy, or bill and Clarity flags hidden fees and risky clauses in plain language.",
+    "Upload a contract, policy, or bill and ClauseWise flags hidden fees and risky clauses in plain language.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

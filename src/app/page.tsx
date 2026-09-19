@@ -77,10 +77,10 @@ export default function Home() {
     return (
       <div className="flex flex-1 flex-col items-center justify-center bg-slate-50 px-6 py-16">
         <div className="mb-10 max-w-2xl text-center">
-          <h1 className="mb-3 text-4xl font-bold text-slate-900">Clarity</h1>
+          <h1 className="mb-3 text-4xl font-bold text-slate-900">ClauseWise</h1>
           <p className="text-lg text-slate-500">
             Upload any rental agreement, insurance policy, loan contract, or medical bill.
-            Clarity finds the hidden fees, risky clauses, and deadlines - and explains them in
+            ClauseWise finds the hidden fees, risky clauses, and deadlines - and explains them in
             plain language.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function Home() {
     <div className="flex flex-1 flex-col bg-slate-50">
       <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Clarity</h1>
+          <h1 className="text-xl font-bold text-slate-900">ClauseWise</h1>
           {fileName && <p className="text-xs text-slate-400">{fileName}</p>}
         </div>
         <div className="flex items-center gap-3">
